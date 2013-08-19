@@ -1,0 +1,15 @@
+{
+    "contents" : "exprSet = read.delim(\"http://jura.wi.mit.edu/bio/education/bioinfo2007/arrays/Su_mas5_matrix.txt\")\ndataset.1 = exprSet[1, c(\"brain.1\", \"brain.2\")]\ndataset.2 = exprSet[1, c(\"fetal.brain.1\", \"fetal.brain.2\")]\n# or we can indicate columns by their numbers\ndataset.1 = exprSet[1, c(1,2)]\ndataset.2 = exprSet[1, c(3,4)]\nt.test.gene.1 = t.test(dataset.1, dataset.2, \"two.sided\")\n# Let's see what these data are\ndataset.1\ndataset.2\n# Print just the p-value from the t-test\n-\nt.test.gene.1$p.value# Check how the chips are named\ncolnames(exprSet)\n\nbrain.p.value.all.genes = apply(exprSet, 1, function(x) { t.test(x[1:2], x[3:4]) $p.value } )\nliver.p.value.all.genes = apply(exprSet, 1, function(x) { t.test(x[5:6], x[7:8]) $p.value } )\n# Check the first few brain ones to make sure the first one agrees with our single-gene command\nbrain.p.value.all.genes[1:5]\n\n\n\n\n\ndata.mas5calls.calls = read.delim(\"http://jura.wi.mit.edu/bio/education/bioinfo2007/arrays/Su_mas5calls.txt\")\n\n# Example for one gene\nAP.gene.1 = paste(data.mas5calls.calls[1,], collapse=\"\")\n# For all genes\nAP = apply(data.mas5calls.calls, 1, paste, collapse=\"\")\n\ngenes.present = names(AP[AP != \"AAAAAAAA\"])\n# How many probetset/genes are present?\nlength(genes.present)\n\nexprSet.present = exprSet[genes.present,]\n\nbrain.raw.pvals.present = brain.p.value.all.genes[genes.present]\nliver.raw.pvals.present = liver.p.value.all.genes[genes.present]\n\nbrain.fdr.pvals.present = p.adjust(brain.raw.pvals.present, method=\"fdr\")\nliver.fdr.pvals.present = p.adjust(liver.raw.pvals.present, method=\"fdr\")\n\nbrain.fdr.pvals.present.sorted = \n  brain.fdr.pvals.present[order(brain.fdr.pvals.present)]\nliver.fdr.pvals.present.sorted = \n  liver.fdr.pvals.present[order(liver.fdr.pvals.present)]\n# Look at the 10 lowest p-values\nbrain.fdr.pvals.present.sorted[1:10]\nliver.fdr.pvals.present.sorted[1:10]\n\nexpression.plus.pvals = cbind(exprSet.present, brain.raw.pvals.present, \n                              brain.fdr.pvals.present, liver.raw.pvals.present, liver.fdr.pvals.present)\nwrite.table(expression.plus.pvals, \"Su_mas5_DE_analysis.txt\", sep=\"\\t\", quote=F)\n\nbrain.DE.probesets = names(brain.raw.pvals.present[brain.raw.pvals.present < 0.01])\nliver.DE.probesets = names(liver.raw.pvals.present[liver.raw.pvals.present < 0.01])\n\n\n\n\n\n\n",
+    "created" : 1374047702147.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3927105275",
+    "id" : "5350F3AA",
+    "lastKnownWriteTime" : 1374048830,
+    "path" : "~/kavya/deg/2.scripts/DEG_jura.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

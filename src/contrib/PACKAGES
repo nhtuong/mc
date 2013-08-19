@@ -1,0 +1,6 @@
+Package: mc
+Version: 1.0
+Depends: methods
+License: PPL
+NeedsCompilation: yes
+MD5sum: 92f9e6deb40b9b11475bbaaa7f6bf904

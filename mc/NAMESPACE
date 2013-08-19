@@ -1,0 +1,8 @@
+export(boxplot.class.mc)
+export(check.installed.mc)
+export(class.mc)
+export(library.mc)
+export(normality.mc)
+export(read.table.mc)
+export(reg.plot.mc)
+export(summary.numeric.mc)

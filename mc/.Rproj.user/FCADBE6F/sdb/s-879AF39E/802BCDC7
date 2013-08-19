@@ -1,0 +1,16 @@
+{
+    "contents" : "res.sig.ge.lm.classified.adbmifma.t0.t0<-data.frame(sig.ge.lm.classified.adbmifma.t0.t0$samres.probeID,\n                                             rep(\"ADFM.T0\",length(sig.ge.lm.classified.adbmifma.t0.t0$samres.probeID)),\n                                             sig.ge.lm.classified.adbmifma.t0.t0$samres.UpLow,\n                                             sig.ge.lm.classified.adbmifma.t0.t0$samres.Stat,\n                                             sig.ge.lm.classified.adbmifma.t0.t0$samres.RawpValue,\n                                             sig.ge.lm.classified.adbmifma.t0.t0$samres.FoldChange,\n                                             sig.ge.lm.classified.adbmifma.t0.t0$samres.FDR)\ncolnames(res.sig.ge.lm.classified.adbmifma.t0.t0)<-c(\"probeID\", \"Index\", \"UpLow\", \"Stat\",    \"RawpValue\",   \"FoldChange\", \"FDR(%)\")\nwrite.table(res.sig.ge.lm.classified.adbmifma.t0.t0,file=sprintf(\"%s/CLASSIFICATION/Subjects/diff/ge-nona_lm_t0_Adipocyte-diameter_vs_BMI-Fat-mass-Age_siggenes.csv\",output.dir),col.names=T,row.names=F,quote=F,sep=\"\\t\")\n\nge.lm.classified.adfm.t0<-read.csv(sprintf(\"%s/CLASSIFICATION/Subjects/labels/ge-nona_lm_t0_Adipocyte-diameter_vs_Fat-mass_points.csv\",output.dir),row.names=1)\nge.lm.classified.adbmifma.t0.t0<-read.csv(sprintf(\"%s/CLASSIFICATION/Subjects/labels/ge-nona_lm_t0_Adipocyte-diameter_vs_Waist_Height2_points.csv\",output.dir),row.names=1)\nge.lm.classified.adfmh2.t0<-read.csv(sprintf(\"%s/CLASSIFICATION/Subjects/labels/ge-nona_lm_t0_Adipocyte-diameter_vs_Fat-mass_Height2_points.csv\",output.dir),row.names=1)\nge.lm.classified.wfmh2.t0<-read.csv(sprintf(\"%s/CLASSIFICATION/Subjects/labels/ge-nona_lw_t0_Waist_vs_Fat-mass_Height2_points.csv\",output.dir),row.names=1)\nge.lm.classified.adh2.t0<-read.csv(sprintf(\"%s/CLASSIFICATION/Subjects/labels/ge-nona_lm_t0_Adipocyte-diameter_vs_Height2_points.csv\",output.dir),row.names=1)\nge.lm.classified.adbmifma.t0<-read.csv(sprintf(\"%s/CLASSIFICATION/Subjects/labels/ge-nona_lm_t0_Adipocyte-diameter_vs_BMI-Fat-mass-Age_points.csv\",output.dir),row.names=1)\n",
+    "created" : 1373627397282.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "1099474090",
+    "id" : "802BCDC7",
+    "lastKnownWriteTime" : 578055781,
+    "path" : null,
+    "properties" : {
+        "tempName" : "Untitled3"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
